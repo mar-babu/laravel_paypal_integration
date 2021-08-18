@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('payment', [PaymentController::class, 'index']);
+Route::post('charge', [PaymentController::class, 'charge']);
+Route::get('paymentsuccess', [PaymentController::class, 'payment_success']);
+Route::get('paymenterror', [PaymentController::class, 'payment_error']);
